@@ -1,0 +1,7 @@
+{
+  "npm.enableRunFromFolder": true,
+  "npm.scriptExplorerAction": "run",
+  "yaml.schemas": {
+    "https://unpkg.com/@ttws/boardspace/public/schema.json": "*.boardspace.yaml"
+  }
+}

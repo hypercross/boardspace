@@ -1,0 +1,9 @@
+---
+title: Boardspace样例
+layout: article.njk
+---
+
+{%- for item in collections.game -%}
+<a href="{{item.url}}">{{item.data.title}}</a>
+<p>{{item.data.description}}</p>
+{%- endfor -%}
