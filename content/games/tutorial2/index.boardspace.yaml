@@ -1,0 +1,22 @@
+boardcode: |
+
+  // 可以用“*”来重复摆放。
+  
+  public/zone1 cube-red*3
+
+  // 可以用“:”来摆放范围。
+
+  public/zone2 poker-01:54
+
+  // 可以换行摆放不同物件。
+
+  public/zone3
+  pawn1-crimson*2
+  pawn1-dodgerblue*2
+
+  // 可以切换到之前摆放过的位置。
+
+  public/zone1
+  cube-blue
+
+  public/zone2 cube-white

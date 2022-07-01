@@ -1,8 +1,3 @@
----
-bgcolor:
-  floor: '#ebe9e1'
-  sky: azure
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +7,8 @@ bgcolor:
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="boardspace-asset-url" content="https://unpkg.com/@ttws/boardspace@0.6.4/public/">
-    <meta name="boardspace-bg" content="{{bgcolor.floor}}, {{bgcolor.sky}}">
-    <title>{{title}}</title>
+    <meta name="boardspace-bg" content="#ebe9e1, azure">
+    <title>摆放物件</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:FILL@1" rel="stylesheet" />
 
@@ -79,11 +74,11 @@ bgcolor:
     <script crossorigin src="https://unpkg.com/@ttws/boardspace@0.6.4/public/lib.umd.min.js"></script>
 
     <script>
-        window.boardspace_document = {{ boardspace | dump | safe }}
+        window.boardspace_document = {"boardcode":"\n// 可以用“*”来重复摆放。\n\npublic/zone1 cube-red*3\n\n// 可以用“:”来摆放范围。\n\npublic/zone2 poker-01:54\n\n// 可以换行摆放不同物件。\n\npublic/zone3\npawn1-crimson*2\npawn1-dodgerblue*2\n\n// 可以切换到之前摆放过的位置。\n\npublic/zone1\ncube-blue\n\npublic/zone2 cube-white\n"}
         document.querySelector('.lds-hourglass').remove();
     </script>
     <template class="rulebook">
-        {{content | safe}}
+        
     </template>
 </body>
 </html>
