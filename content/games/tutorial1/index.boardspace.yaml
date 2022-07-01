@@ -1,6 +1,12 @@
 boardcode: |
 
   // cube-red 表示一个红色方块
+  // 其中，cube表示物件类型，所有以cube-开头的物件都具有相同的尺寸、布局特性等属性
+  // red表示物件的id，所有type + id组合相同的物件都具有完全一致的外观
+
   // public/zone 表示公共座位里名为zone的区域
+  // 每个座位在Boardcode里拥有一个矩形桌面空间，而区域空间从座位空间当中划分
+  // 座位通常以public，player1，player2为方式命名
+  // 区域则按功能自由命名
   
   public/zone cube-red

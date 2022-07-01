@@ -2,34 +2,66 @@
 tabletop:
   parts:
 
+  # 单卡单图：用卡背定义卡牌的几何外形，然后使用正则替换获取正面的加载链接
+  # 适合卡牌数量庞大，且自带编号系统的游戏
+  
+  # 这个物件从scryfall加载万智牌。
+  # 物件编码使用 mtg-<系列代码>_<卡牌id> 的格式。
+  # pattern正则把系列代码与卡牌id分别提取为$1和$2使用。
+
   - type: mtg
     renderer: card
     pattern: (\w+)_(\d+)
 
-    # 单卡单图：用卡背定义卡牌的几何外形，然后使用正则替换获取正面的加载链接
-    # 适合卡牌数量庞大，且自带编号系统的游戏
+    # 注意shape链接当中的cols=1与rows=1参数，表示自动划分区域的行数与列数。带有该参数时，图片才会生成区域划分。
+    # 还可以添加radius=0.3和bleed=0.1参数，分别代表图片圆角为0.3厘米，出血0.1厘米。
+    # 不添加时，圆角为0.3厘米，出血为0。
+
+    # shape的第二项使用_，代表将整张卡图的区域用作卡背。
     shape: [ https://static.wikia.nocookie.net/mtgsalvation_gamepedia/images/5/5c/Cardback_reimagined.png?cols=1&rows=1, _ ]
+
+    # 正面链接中使用了$1与$2参数。两个参数对应正则表达式当中的第一对和第二对括号。
     front: https://api.scryfall.com/cards/$1/$2/zhs?format=image
 
+
+  # 卡组拼版：使用同尺寸的卡牌拼版，并按顺序连续摆放
+  # 适合不会拆开使用的独立卡组
+
+  # 这个物件使用与内置扑克相同的加载方式。
+  # 物件编码使用 poker2-<序号> 的格式。
   - type: poker2
     renderer: card
     pattern: (\d+)
 
-    # 卡组拼版：使用同尺寸的卡牌拼版，并按顺序连续摆放
-    # 适合不会拆开使用的独立卡组
+    # shape当中的cols=13， rows=5，与卡图的行列数目一致。
+    # shape第二项填写了56，代表使用卡图当中的第56格作为卡背。
     shape: [https://unpkg.com/@ttws/boardspace@0.6.4/public/poker.webp?cols=13&rows=5&radius=0.3&bleed=0.1, 56]
+
+    # 卡面与shape链接在同一张卡图上时，可以只填写卡图上的序号。
     front: $1
 
+
+  # 自由拼版：使用svg划分区域
+  # 适合形状较复杂，或需要按名称查询物件，又需要拼版的场合
+
+  # 这个物件使用svg文件直接生成昆虫棋棋子。
+  # 物件编码使用hive-xxx的格式，其中xxx需要与svg文件中的图层匹配。
   - type: hive
     renderer: card
     pattern: (\w+)
 
-    # 定义适配尺寸与厚度
+    # 定义适配尺寸与厚度。单位是厘米。
+    # 适配尺寸会用作排版定位使用，不会改变物件视觉上的长宽比。
+    # 适配长宽仅作为最大长宽生效，但厚度会如实产生影响。
     size: [3, 3, .4]
 
-    # 自由拼版：使用svg划分区域
-    # 适合形状较复杂，或需要按名称查询物件，又需要拼版的场合
+    # 由于hive.svg包含纯色填充，因此这里可以直接用作卡面贴图。
+    # 如果不希望使用svg文件本身，可以添加url参数img=xxx.png来替代。
+    # 替代文件需与svg文件尺寸相同。其路径相对于svg文件的路径决定。
+    # 由于svg自带图层命名以及区域划分，因此不需要使用cols, rows, radius, bleed参数。
     shape: [./hive.svg, $1]
+
+    # 对于有厚度的类卡牌棋子而言，还需要确保其边缘颜色与卡面一致。
     edge: $1
 
 boardcode: |

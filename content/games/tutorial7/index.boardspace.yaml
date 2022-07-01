@@ -5,7 +5,7 @@ boardcode: |
   public/z1
   poker-01 .face=down
 
-  // 也可以对区域添加，使得所有在区域内的物件都背面向上。
+  // 也可以对区域添加，使得所有在区域内的物件都自动背面向上。
 
   public/z2 .face=down
   poker-02

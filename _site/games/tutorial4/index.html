@@ -74,7 +74,7 @@
     <script crossorigin src="https://unpkg.com/@ttws/boardspace@0.6.4/public/lib.umd.min.js"></script>
 
     <script>
-        window.boardspace_document = {"boardcode":"\n// 排版表格除了填写区域名称外，还可以填写一些特殊值：\n// - 留空：与左侧的单元格合并。\n// - ^: 与上方的单元格合并。\n// - .: 标记为空白区域，不使用。\n\n// 此外，表格竖线无需上下对齐，且每行单元格数目少于表头时会使用空白单元格补足。\n// 确保正确包裹单元格内容即可。\n\n// 不过，为方便阅读，请尽量保持完整表格的形态，避免使用看起来太奇怪的写法。\n\n| public | 1fr | 2fr | 1fr |\n| 1fr    | z1       || z3  |\n| 2fr    | z4  | .   | ^   |\n| 1fr    | z7  |\n\npublic/z4 poker-01:52\npublic/z3 poker-53:54\n"}
+        window.boardspace_document = {"boardcode":"\n// 排版表格除了填写区域名称外，还可以填写一些特殊值：\n// - 留空：与左侧的单元格合并。\n// - ^: 与上方的单元格合并。\n// - .: 标记为空白区域，不使用。\n\n// 此外，表格竖线无需上下对齐，且每行单元格数目可以与表头不一致。\n// 缺少的单元格，会使用空白单元格自动补足。表头则使用 1fr 补足。编写时，确保每个单元格内容都被竖线包裹即可。\n\n// 不过，为方便阅读，请尽量保持完整表格的形态，避免使用看起来太奇怪的写法。\n\n| public | 1fr | 2fr |\n| 1fr    | z1       || z3  |\n| 2fr    | z4  | .   | ^   |\n| 1fr    | z7  |\n\npublic/z4 poker-01:52\npublic/z3 poker-53:54\n"}
         document.querySelector('.lds-hourglass').remove();
     </script>
     <template class="rulebook">

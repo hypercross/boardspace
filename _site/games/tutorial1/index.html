@@ -74,7 +74,7 @@
     <script crossorigin src="https://unpkg.com/@ttws/boardspace@0.6.4/public/lib.umd.min.js"></script>
 
     <script>
-        window.boardspace_document = {"boardcode":"\n// cube-red 表示一个红色方块\n// public/zone 表示公共座位里名为zone的区域\n\npublic/zone cube-red\n"}
+        window.boardspace_document = {"boardcode":"\n// cube-red 表示一个红色方块\n// 其中，cube表示物件类型，所有以cube-开头的物件都具有相同的尺寸、布局特性等属性\n// red表示物件的id，所有type + id组合相同的物件都具有完全一致的外观\n\n// public/zone 表示公共座位里名为zone的区域\n// 每个座位在Boardcode里拥有一个矩形桌面空间，而区域空间从座位空间当中划分\n// 座位通常以public，player1，player2为方式命名\n// 区域则按功能自由命名\n\npublic/zone cube-red\n"}
         document.querySelector('.lds-hourglass').remove();
     </script>
     <template class="rulebook">
