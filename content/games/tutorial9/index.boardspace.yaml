@@ -1,0 +1,41 @@
+
+tabletop:
+  parts:
+
+  - type: mtg
+    renderer: card
+    pattern: (\w+)_(\d+)
+
+    # 单卡单图：用卡背定义卡牌的几何外形，然后使用正则替换获取正面的加载链接
+    # 适合卡牌数量庞大，且自带编号系统的游戏
+    shape: [ https://static.wikia.nocookie.net/mtgsalvation_gamepedia/images/5/5c/Cardback_reimagined.png?cols=1&rows=1, _ ]
+    front: https://api.scryfall.com/cards/$1/$2/zhs?format=image
+
+  - type: poker2
+    renderer: card
+    pattern: (\d+)
+
+    # 卡组拼版：使用同尺寸的卡牌拼版，并按顺序连续摆放
+    # 适合不会拆开使用的独立卡组
+    shape: [https://unpkg.com/@ttws/boardspace@0.6.4/public/poker.webp?cols=13&rows=5&radius=0.3&bleed=0.1, 56]
+    front: $1
+
+  - type: hive
+    renderer: card
+    pattern: (\w+)
+
+    # 定义适配尺寸与厚度
+    size: [3, 3, .4]
+
+    # 自由拼版：使用svg划分区域
+    # 适合形状较复杂，或需要按名称查询物件，又需要拼版的场合
+    shape: [./hive.svg, $1]
+    edge: $1
+
+boardcode: |
+
+  public/zone1 mtg-eld_12
+
+  public/zone2 poker2-01:54
+
+  public/zone3 hive-blackspider

@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="boardspace-asset-url" content="https://unpkg.com/@ttws/boardspace@0.6.4/public/">
     <meta name="boardspace-bg" content="#ebe9e1, azure">
-    <title>旋转与翻转</title>
+    <title>自定义卡牌</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:FILL@1" rel="stylesheet" />
 
@@ -74,7 +74,7 @@
     <script crossorigin src="https://unpkg.com/@ttws/boardspace@0.6.4/public/lib.umd.min.js"></script>
 
     <script>
-        window.boardspace_document = {"boardcode":"\n// 摆放物件时，添加 .face=down 的后缀来让物件变为背面向上。\n\npublic/z1\npoker-01 .face=down\n\n// 也可以对区域添加，使得所有在区域内的物件都背面向上。\n\npublic/z2 .face=down\npoker-02\n\n// 添加 .side=1 来使得卡牌被横置。\n\npublic/z3 .side=1\npoker-03\n\n// Boardcode将物件的朝向状态分为两部分定义：\n// - 旋转：物件接地面不变。\n// - 翻转：物件接地面改变。\n\n// 无论是旋转还是翻转，对于Boardcode来说都是没有范围的整数。\n// 由渲染器决定物件面数与边数之后，再取余使用。\n// 绝大部分游戏仅需关心两种旋转/翻转状态，使用0和1即可。\n// 另外，down和up可作为1和0的假名使用。\n"}
+        window.boardspace_document = {"tabletop":{"parts":[{"type":"mtg","renderer":"card","pattern":"(\\w+)_(\\d+)","shape":["https://static.wikia.nocookie.net/mtgsalvation_gamepedia/images/5/5c/Cardback_reimagined.png?cols=1&rows=1","_"],"front":"https://api.scryfall.com/cards/$1/$2/zhs?format=image"},{"type":"poker2","renderer":"card","pattern":"(\\d+)","shape":["https://unpkg.com/@ttws/boardspace@0.6.4/public/poker.webp?cols=13&rows=5&radius=0.3&bleed=0.1",56],"front":"$1"},{"type":"hive","renderer":"card","pattern":"(\\w+)","size":[3,3,0.4],"shape":["./hive.svg","$1"],"edge":"$1"}]},"boardcode":"\npublic/zone1 mtg-eld_12\n\npublic/zone2 poker2-01:54\n\npublic/zone3 hive-blackspider\n"}
         document.querySelector('.lds-hourglass').remove();
     </script>
     <template class="rulebook">
