@@ -1,6 +1,6 @@
 boardcode: |
 
   // cube-red 表示一个红色方块
-  // public/zone 表示公共座位里名为zone的子区域
+  // public/zone 表示公共座位里名为zone的区域
   
   public/zone cube-red

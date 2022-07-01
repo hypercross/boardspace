@@ -1,0 +1,14 @@
+boardcode: |
+
+  // 需绘制ascii表格来划分桌面空间。
+  // 表格的左上角需填写座位名称。
+  // 此外，第一行与第一列需填写尺寸比例。
+  // 其他位置填写区域名称。
+  
+  | public | 1fr | 2fr | 1fr |
+  | 1fr    | z1  | z2  | z3  |
+  | 2fr    | z4  | z5  | z6  |
+  | 1fr    | z7  | z8  | z9  |
+
+  public/z5 poker-01:52
+  public/z3 poker-53:54
