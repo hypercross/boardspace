@@ -6,7 +6,9 @@
     "start": "eleventy --serve",
     "build": "rimraf _site && cross-env NODE_ENV=production eleventy"
   },
-  "keywords": ["boardgame"],
+  "keywords": [
+    "boardgame"
+  ],
   "author": "hyper",
   "license": "MIT",
   "devDependencies": {

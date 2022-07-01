@@ -1,18 +1,34 @@
 boardcode: |
 
   // 可以用“*”来重复摆放。
+  // 当作乘号来想，数量增加即可。
   
   public/zone1 cube-red*3
 
   // 可以用“:”来摆放范围。
+  // 举例里的范围是说  扑克的 01-54那么多的牌，如果改变可以是01:05，04:20这样。
 
-  public/zone2 poker-01:54
+  public/zone2 poker-01:05
 
   // 可以换行摆放不同物件。
+  // pawn1是大头兵人米宝，pawn2是小头兵人米宝，meeple是卡卡松米宝，hexgon是六角柱体，house1是单间房子，house2是双人间房子，church是教堂房子，coin是硬币or棋子，cube是小方块，cylinder是圆柱体
+  // “-”后面是颜色描述，推荐用色有：
+  // crimson，firebrick，darkred，tomato，salmon，lightpink,hotpink, orange,gold,wheat,khaki,lightyellow
+  // limegreen,forestgreen,darkseagreen,palegreen,mediumaquamarine.turquoise,steelblue,powderblue,skyblue,dodgerblue
+  // darkslateblue,slateblue, plum,violet,blueviolet,gainsboro,slategray,dimgray,silver
+  // 欢迎尝试
 
   public/zone3
-  pawn1-crimson*2
-  pawn1-dodgerblue*2
+  house1-salmon
+  house1-gold
+  house1-wheat
+  house1-lightpink
+  house1-plum
+  house1-powderblue
+  house1-palegreen
+  house1-turquoise
+  house1-mediumaquamarine
+
 
   // 可以切换到之前摆放过的位置。
 
