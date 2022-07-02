@@ -15,10 +15,26 @@ boardcode: |
 
   | public  | zone |
 
-  | player1 | zone |
+  public/zone .face=down
+  poker-05:54
+
+  | player1 | zone<6> |
+
+  // 可以为区域添加 .player1:face=up 后缀，以让启用player1座位视角的玩家看到卡牌正面。
+  player1/zone .face=down .player1:face=up
+  poker-01
   
-  | player2 | zone |
+  | player2 | zone<6> |
+
+  player2/zone .face=down .player2:face=up
+  poker-02
   
-  | player3 | zone |
-  
-  | player4 | zone |
+  | player3 | zone<6> |
+
+  player3/zone .face=down .player3:face=up
+  poker-03
+
+  | player4 | zone<6> |
+
+  player4/zone .face=down .player4:face=up
+  poker-04

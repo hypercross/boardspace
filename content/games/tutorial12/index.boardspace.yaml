@@ -1,0 +1,29 @@
+tabletop:
+  parts:
+  - type: coin
+    renderer: piece
+    pattern: (\w+)
+
+    size: [3,3,0.5]
+
+    shape: coin
+    color: $1
+
+  counters:
+  # 可以为计数指示物添加工具栏条目。
+  # 需至少定义一个计数指示物工具，才会显示计数工具。
+  # 选择金币工具后，可以点击扑克来添加一点金币计数。
+  - part: coin-gold
+    name: 金币
+    colors: [black, gold]
+
+boardcode: |
+  
+  // 可以为物件添加 .count=100 后缀，以让物件显示数目。
+  // 带有数目的物件在移动时，改为移动1点数目而不是物件本身。
+
+  public/zone coin-gold .count=100
+  public/zone2
+
+  public/zone3
+  poker-01
