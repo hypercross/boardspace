@@ -1,0 +1,21 @@
+boardcode: |
+  // 可以为区域添加 .sorted 后缀，让坐标自动对坐标物件进行排序。
+  // 添加后，需要为每种物件添加类 .type_order=1 后缀，以指定排序优先度。
+  // 物件移动时，会将本物件上方排序优先度更大的物件一同移动。
+
+  public/zone1 .sorted .poker_order=0 .pawn1_order=1
+  poker-01:13
+  pawn1-gold*3
+
+  public/zone2 .sorted .poker_order=0 .pawn1_order=1
+
+  public/zone3
+
+  // 可以为区域添加 .type_max=1 后缀，让坐标最多允许摆放1个该类型的物件。
+  // 如果添加 .type_max=0，则不允许该类型物件摆放在区域内。
+
+  public/zone4 .poker_max=0 .pawn1_max=1
+
+  | public |
+  | 1fr    | zone1 | zone2 |
+  | 1fr    | zone3 | zone4[6][6] |

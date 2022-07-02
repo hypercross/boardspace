@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="boardspace-asset-url" content="https://unpkg.com/@ttws/boardspace@0.6.5/public/">
+    <meta name="boardspace-bg" content="#ebe9e1, azure">
+    <title>物件排序与最大数目</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:FILL@1" rel="stylesheet" />
+
+    <style>
+      .lds-hourglass {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+      }
+      .lds-hourglass:after {
+        content: " ";
+        display: block;
+        border-radius: 50%;
+        width: 0;
+        height: 0;
+        margin: 8px;
+        box-sizing: border-box;
+        border: 32px solid black;
+        border-color: black transparent black transparent;
+        animation: lds-hourglass 1.2s infinite;
+      }
+      @keyframes lds-hourglass {
+        0% {
+          transform: rotate(0);
+          animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        }
+        50% {
+          transform: rotate(900deg);
+          animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        100% {
+          transform: rotate(1800deg);
+        }
+      }
+      body, html{
+          margin:0;
+          padding:0;
+          touch-action: none;
+          user-select: none;
+      }
+      main{
+          height: 100vh;
+      }
+    </style>
+
+</head>
+<body>
+    <div class="lds-hourglass"></div>
+
+    <!-- heavy weight bundles -->
+    <script crossorigin src="https://unpkg.com/mqtt@4.3.7/dist/mqtt.min.js"></script>
+    <script crossorigin src="https://unpkg.com/three@0.139.2/build/three.min.js"></script>
+    <script crossorigin src="https://unpkg.com/js-yaml@3.12.0/dist/js-yaml.min.js"></script>
+
+    <!-- react & co -->
+    <script crossorigin src="https://unpkg.com/react@18.1.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-is@18.1.0/umd/react-is.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/styled-components@5.3.5/dist/styled-components.min.js"></script>
+
+    <!-- boardspace -->
+    <script crossorigin src="https://unpkg.com/@ttws/boardspace@0.6.5/public/lib.umd.min.js"></script>
+
+    <script>
+        window.boardspace_document = {"boardcode":"// 可以为区域添加 .sorted 后缀，让坐标自动对坐标物件进行排序。\n// 添加后，需要为每种物件添加类 .type_order=1 后缀，以指定排序优先度。\n// 物件移动时，会将本物件上方排序优先度更大的物件一同移动。\n\npublic/zone1 .sorted .poker_order=0 .pawn1_order=1\npoker-01:13\npawn1-gold*3\n\npublic/zone2 .sorted .poker_order=0 .pawn1_order=1\n\npublic/zone3\n\n// 可以为区域添加 .type_max=1 后缀，让坐标最多允许摆放1个该类型的物件。\n// 如果添加 .type_max=0，则不允许该类型物件摆放在区域内。\n\npublic/zone4 .poker_max=0 .pawn1_max=1\n\n| public |\n| 1fr    | zone1 | zone2 |\n| 1fr    | zone3 | zone4[6][6] |\n"}
+        document.querySelector('.lds-hourglass').remove();
+    </script>
+    <template class="rulebook">
+        
+    </template>
+</body>
+</html>
