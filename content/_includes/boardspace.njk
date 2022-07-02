@@ -2,6 +2,7 @@
 bgcolor:
   floor: '#ebe9e1'
   sky: azure
+boardspace_version: 0.6.5
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,7 @@ bgcolor:
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="boardspace-asset-url" content="https://unpkg.com/@ttws/boardspace@0.6.4/public/">
+    <meta name="boardspace-asset-url" content="https://unpkg.com/@ttws/boardspace@{{ boardspace_version }}/public/">
     <meta name="boardspace-bg" content="{{bgcolor.floor}}, {{bgcolor.sky}}">
     <title>{{title}}</title>
 
@@ -76,7 +77,7 @@ bgcolor:
     <script crossorigin src="https://unpkg.com/styled-components@5.3.5/dist/styled-components.min.js"></script>
 
     <!-- boardspace -->
-    <script crossorigin src="https://unpkg.com/@ttws/boardspace@0.6.4/public/lib.umd.min.js"></script>
+    <script crossorigin src="https://unpkg.com/@ttws/boardspace@{{ boardspace_version }}/public/lib.umd.min.js"></script>
 
     <script>
         window.boardspace_document = {{ boardspace | dump | safe }}

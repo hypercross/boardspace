@@ -4,6 +4,7 @@ layout: article.njk
 ---
 
 {%- for item in collections.game -%}
-<a href="{{item.url}}">{{item.data.title}}</a>
-<p>{{item.data.description}}</p>
+  <a href="{{item.url}}">{{item.data.title}}</a>
+  <span>{{item.url}}</span>
+  <p>{{item.data.description}}</p>
 {%- endfor -%}

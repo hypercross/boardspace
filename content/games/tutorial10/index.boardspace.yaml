@@ -1,0 +1,52 @@
+
+tabletop:
+  parts:
+  
+  - type: house
+    renderer: piece
+    pattern: (\w+)
+
+    # faces 定义面数。面数决定物件翻转（接地面变化）方式。目前可以填写none, card, standing, d2，d6，d20。
+    faces: none
+
+    # sides 定义边数。边数决定物件旋转（接地面不变化）方式。目前可以填写tap, d4, d4r, d6, d6r, d8, d8r。
+    sides: none
+    
+    # 如果需要更多 faces 与 sides 的预制，欢迎联系作者讨论。
+
+    # piling 决定同一坐标位置上，同类物件在向上堆叠前，横向与纵向摆放的最大行列数。
+    # 如果仅希望向上堆叠，则设置为[1,1]。
+    # 卡牌物件默认值是[1,1]，块物件则是[3,3]。
+    piling: [5,2]
+
+    # 可以通过指定相同的 group，来让不同类型的物件作为同一类型来堆叠。
+    # 请确保如此堆叠的物件尺寸一致。
+    group: pieces
+
+    # 定义适配尺寸与厚度。单位是厘米。
+    # 适配尺寸会用作排版定位使用，不会改变物件视觉上的长宽比。
+    # 卡牌物件的适配长宽作为最大长宽生效，而厚度如实生效。
+    # 块物件的适配长宽高均不产生影响，需要模型本身尺寸正确。
+    size: [3,3,3]
+
+    shape: house1
+    color: $1
+
+  - type: cubic
+    renderer: piece
+    pattern: (\w+)
+   
+    faces: none
+    sides: none
+    piling: [5,2]
+    group: pieces
+    size: [3,3,3]
+
+    shape: cube
+    color: $1
+
+boardcode: |
+
+  public/zone
+  house-tomato*4
+  cubic-limegreen*6
