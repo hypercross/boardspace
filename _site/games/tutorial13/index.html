@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="boardspace-asset-url" content="https://unpkg.com/@ttws/boardspace@0.7.4/public/">
+    <meta name="boardspace-bg" content="#ebe9e1, azure">
+    <title>（0.7.4）范围语法</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:FILL@1" rel="stylesheet" />
+
+    <style>
+      .lds-hourglass {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+      }
+      .lds-hourglass:after {
+        content: " ";
+        display: block;
+        border-radius: 50%;
+        width: 0;
+        height: 0;
+        margin: 8px;
+        box-sizing: border-box;
+        border: 32px solid black;
+        border-color: black transparent black transparent;
+        animation: lds-hourglass 1.2s infinite;
+      }
+      @keyframes lds-hourglass {
+        0% {
+          transform: rotate(0);
+          animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        }
+        50% {
+          transform: rotate(900deg);
+          animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        100% {
+          transform: rotate(1800deg);
+        }
+      }
+      body, html{
+          margin:0;
+          padding:0;
+          touch-action: none;
+          user-select: none;
+      }
+      main{
+          height: 100vh;
+      }
+    </style>
+
+</head>
+<body>
+    <div class="lds-hourglass"></div>
+
+    <!-- heavy weight bundles -->
+    <script crossorigin src="https://unpkg.com/mqtt@4.3.7/dist/mqtt.min.js"></script>
+    <script crossorigin src="https://unpkg.com/three@0.139.2/build/three.min.js"></script>
+    <script crossorigin src="https://unpkg.com/js-yaml@3.12.0/dist/js-yaml.min.js"></script>
+
+    <!-- react & co -->
+    <script crossorigin src="https://unpkg.com/react@18.1.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-is@18.1.0/umd/react-is.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/styled-components@5.3.5/dist/styled-components.min.js"></script>
+
+    <!-- boardspace -->
+    <script crossorigin src="https://unpkg.com/@ttws/boardspace@0.7.4/public/lib.umd.min.js"></script>
+
+    <script>
+        window.boardspace_document = {"tabletop":{"prefabs":{"pawn-player":{"player1":"pawn1-crimson","player2":"pawn1-dodgerblue","player3":"pawn1-limegreen","player4":"pawn1-khaki"}}},"boardcode":"\n// 0.7.4 更新：\n\n// 可以使用..来描述座位与区域的范围。\n// ..的功能与物件摆放时使用的:写法一致，两者可以相互替换。\n\n// 此外，坐标轴的定义现在可以写在摆放语法里。\n// 如：player1/hand <8>\n// 为避免混淆，坐标语法从[0,0]改为(0,0)。\n\n// 另外，摆放语法的座位、区域、坐标现在可以拆分编写。\n// 可以大致按照一二三级标题来理解。\n\nplayer1 .. player4/\n\n/pawns pawn-player*4\n/queue []<8>\n(0,0) pawn-player\n\n| player1 .. player4 | 4fr   | 1fr   |\n| 1fr                | pawns | queue |\n"}
+        document.querySelector('.lds-hourglass').remove();
+    </script>
+    <template class="rulebook">
+        <p>注意模板中 boardspace_version，会替换 unpkg 链接中的版本号。</p>
+
+    </template>
+</body>
+</html>

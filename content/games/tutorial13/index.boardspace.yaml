@@ -1,0 +1,30 @@
+tabletop:
+  prefabs:
+    pawn-player:
+      player1: pawn1-crimson
+      player2: pawn1-dodgerblue
+      player3: pawn1-limegreen
+      player4: pawn1-khaki
+
+boardcode: |
+
+  // 0.7.4 更新：
+
+  // 可以使用..来描述座位与区域的范围。
+  // ..的功能与物件摆放时使用的:写法一致，两者可以相互替换。
+  
+  // 此外，坐标轴的定义现在可以写在摆放语法里。
+  // 如：player1/hand <8>
+  // 为避免混淆，坐标语法从[0,0]改为(0,0)。
+
+  // 另外，摆放语法的座位、区域、坐标现在可以拆分编写。
+  // 可以大致按照一二三级标题来理解。
+
+  player1 .. player4/
+  
+  /pawns pawn-player*4
+  /queue []<8>
+  (0,0) pawn-player
+
+  | player1 .. player4 | 4fr   | 1fr   |
+  | 1fr                | pawns | queue |
