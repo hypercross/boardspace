@@ -1,4 +1,8 @@
 tabletop:
+
+  # 新参数：prefabs
+  # 可以为卡组或其他物件集合定义假名。在摆放假名时，会改为摆放物件集合里的内容。
+  # 假名可以定义为单一集合，或对每个座位定义不同的集合。
   prefabs:
     pawn-player:
       player1: pawn1-crimson
