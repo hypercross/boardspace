@@ -14,12 +14,16 @@ boardcode: |
 
   // 只有启用座位视角的玩家，能够在屏幕上看到对应座位的屏幕空间布局区域。
 
-  player1 .. player4/
-  /field [10][4]
+  public/draw [9][7]
+  (4,3) poker-01 .. 50  .face=down
 
-  | player1HudBottom | hand<5> |
+  player1 .. player4/
+  /field [9][4]
+
+  | player1HudBottom .. player4HudBottom | hand<5> |
 
   player1HudBottom/hand
-  (0) poker-01
-  (1) poker-03
-  (2) poker-05
+  (0) poker-51
+  (1) poker-52
+  (2) poker-53
+  (3) poker-54

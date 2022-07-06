@@ -74,7 +74,7 @@
     <script crossorigin src="https://unpkg.com/@ttws/boardspace@0.8.0/public/lib.umd.min.js"></script>
 
     <script>
-        window.boardspace_document = 
+        window.boardspace_document = {"boardcode":"\n// 0.8.0 更新：\n\n// 添加屏幕空间的布局方式。\n// 如果为座位名称添加屏幕空间后缀，可以为该座位定义屏幕空间布局。\n\n// 后缀包括以下五种：\n// HudCenter\n// HudTop\n// HudBottom\n// HudLeft\n// HudRight\n\n// 只有启用座位视角的玩家，能够在屏幕上看到对应座位的屏幕空间布局区域。\n\npublic/draw [9][7]\n(4,3) poker-01 .. 50  .face=down\n\nplayer1 .. player4/\n/field [10][4]\n\n| player1HudBottom .. player4HudBottom | hand<5> |\n\nplayer1HudBottom/hand\n(0) poker-51\n(1) poker-52\n(2) poker-53\n(3) poker-54\n"}
         document.querySelector('.lds-hourglass').remove();
     </script>
     <template class="rulebook">
