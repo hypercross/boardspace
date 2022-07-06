@@ -1,0 +1,25 @@
+boardcode: |
+
+  // 0.8.0 更新：
+
+  // 添加屏幕空间的布局方式。
+  // 如果为座位名称添加屏幕空间后缀，可以为该座位定义屏幕空间布局。
+
+  // 后缀包括以下五种：
+  // HudCenter
+  // HudTop
+  // HudBottom
+  // HudLeft
+  // HudRight
+
+  // 只有启用座位视角的玩家，能够在屏幕上看到对应座位的屏幕空间布局区域。
+
+  player1 .. player4/
+  /field [10][4]
+
+  | player1HudBottom | hand<5> |
+
+  player1HudBottom/hand
+  (0) poker-01
+  (1) poker-03
+  (2) poker-05
