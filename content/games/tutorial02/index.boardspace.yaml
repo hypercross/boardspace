@@ -24,13 +24,23 @@ boardcode: |
   // cube是小方块
   // cylinder是圆柱体
 
+  public/zone3
+  pawn1-limegreen
+  pawn2-steelblue
+  meeple-violet
+  hexagon-gainsboro
+  house2-silver
+  church-skyblue
+  coin-gold
+  cylinder-hotpink
+
   // “-”后面是颜色描述，推荐用色有：
   // crimson，firebrick，darkred，tomato，salmon，lightpink,hotpink, orange,gold,wheat,khaki,lightyellow
   // limegreen,forestgreen,darkseagreen,palegreen,mediumaquamarine.turquoise,steelblue,powderblue,skyblue,dodgerblue
   // darkslateblue,slateblue, plum,violet,blueviolet,gainsboro,slategray,dimgray,silver
   // 欢迎尝试
 
-  public/zone3
+  public/zone4
   house1-salmon
   house1-gold
   house1-wheat
